@@ -17,3 +17,8 @@ Write-Output "===== Report ====="
 Write-Output $response.reportText
 Write-Output "===== Charts ====="
 Write-Output ($response.charts | ConvertTo-Json -Depth 5)
+
+
+$reportHtml = "<html><body><pre>$($response.reportText)</pre></body></html>"
+$reportHtml | Out-File -FilePath "report.html" -Encoding UTF8
+Start-Process "report.html"
