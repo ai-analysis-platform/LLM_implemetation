@@ -2,10 +2,9 @@ import pandas as pd
 import os
 from google.genai import Client  # pip install google-genai, 예시 import
 from typing import Optional
-
 from typing import Dict, List, Any
 import os
-
+import json
 
 def test_generate_report(prompt: str):
     """
@@ -89,6 +88,7 @@ The report must be based on the provided internal financial data (CSV) and real-
 - Company: {data.get('companyName')}
 - Industry: {data.get('industry')}
 - Reporting Period: {data.get('reportingPeriod')}
+- Reporting Type: {data.get('report_type')}}
 - Internal CSV Data: 
 {data.get('csvData', '')[:5000]}
 - User Request: {data.get('additionalRequests', 'None')}
@@ -132,14 +132,7 @@ Generate 2-3 charts: Price Trend, Segment Performance, Valuation/Growth
         text = getattr(result, "text", "")
 
         
-        # 2️⃣ LLM 호출
-        response = genai_client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
-
-        # 3️⃣ 결과 추출
-        text = getattr(response, "text", "")
+        
 
         # 4️⃣ REPORT / CHARTS 분리
         report_start = "[REPORT_START]"

@@ -29,15 +29,16 @@ def generate(prompt: Prompt):
 '''
 @app.post("/generate")
 def generate(prompt: Prompt):
-    ticker = find_ticker_symbol(prompt.companyName)
+    ticker = find_ticker_symbol(prompt.companyName) #이거는llm안쓰는게 나을듯
     data = {
         "companyName": prompt.companyName,
         "ticker": ticker,
         "csvData": "...",  # 필요하면 CSV 내용 전달
         "reportTemplate": "",
         "reportingPeriod": "2025-Q3",
-        "industry": "Technology",
-        "additionalRequests": prompt.text
+        "industry": "Manufacturing",
+        "additionalRequests": prompt.text,
+        "report_type":"Financial Snapshot report"
     }
     report = generate_business_report(data)
     return report
