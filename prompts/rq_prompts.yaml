@@ -19,12 +19,12 @@ Manufacturing:
     - 설비 가동률, 처리량
     - QoQ, YoY 성과 비교
 
-    각 Research Question에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    각 Research Question에 대해 반드시 다음 항목을 포함하세요:
+    - question: 분석할 구체적 질문 예시 (예: "지난 분기 대비 매출 성장률이 감소한 원인은 무엇인가?")
+    - analysis_type: 분석 방법 예시 (예: "Time Series Analysis, Variance Decomposition")
+    - required_data: 필요한 데이터 예시 (예: "월별 매출, 생산량, 인력, 원가 데이터")
+    - success_metric: 성공 기준 예시 (예: "매출 성장률 감소 요인 3가지 이상 도출")
+    - optional_tools: 사용 가능한 도구 예시 (예: "Python, Excel, Tableau, SQL")
 
     출력은 반드시 **JSON 배열** 형태로 하세요.
 
@@ -32,7 +32,8 @@ Manufacturing:
     """
     {user_request}
     """
-    
+
+
   Marketing Performance: |
     당신은 제조업 기반 B2B/B2C 마케팅 성과 분석을 설계하는 시니어 마케팅 데이터 분석가입니다.
 
@@ -50,11 +51,11 @@ Manufacturing:
     - 마케팅 비용 대비 매출 기여도
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("최근 캠페인의 채널별 ROI를 비교하여 가장 효율적인 채널을 도출")
+    - analysis_type: 예시 ("ROI 분석, Funnel Analysis")
+    - required_data: 예시 ("광고비, 리드 수, 계약 수, 매출")
+    - success_metric: 예시 ("ROI가 가장 높은 채널 식별, CAC 최적화 가능 여부")
+    - optional_tools: 예시 ("Google Analytics, Python, Tableau, SQL")
 
     출력은 반드시 **JSON 배열** 형태로 하세요.
 
@@ -62,6 +63,7 @@ Manufacturing:
     """
     {user_request}
     """
+
 
   Product/Sales Analysis: |
     당신은 제조업 기업의 제품 포트폴리오 및 매출 성과 분석을 설계하는 수석 전략 분석가입니다.
@@ -80,11 +82,11 @@ Manufacturing:
     - 수요 변화 트렌드
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("제품군별 매출 비중 변화를 분석하여 고성장 제품을 식별")
+    - analysis_type: 예시 ("Sales Mix Analysis, Trend Analysis")
+    - required_data: 예시 ("제품별 매출, 가격, 판매 채널, 지역별 판매량")
+    - success_metric: 예시 ("상위 3개 고성장 제품 도출")
+    - optional_tools: 예시 ("Python, Power BI, SQL, Excel")
 
     출력은 **JSON 배열** 형태로 반환하세요.
 
@@ -92,6 +94,7 @@ Manufacturing:
     """
     {user_request}
     """
+
 
   Operation/Manufacturing: |
     당신은 제조 공정 및 스마트팩토리 운영 분석을 설계하는 수석 공정 분석가입니다.
@@ -110,11 +113,11 @@ Manufacturing:
     - 자동화 투자 효과
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("설비별 OEE를 분석하여 병목 공정을 식별")
+    - analysis_type: 예시 ("Root Cause Analysis, Process Simulation")
+    - required_data: 예시 ("설비별 가동률, 생산량, 불량률, 다운타임 기록")
+    - success_metric: 예시 ("병목 공정 개선 방안 도출")
+    - optional_tools: 예시 ("Python, R, Tableau, ERP 데이터")
 
     출력은 **JSON 배열** 형태로 하세요.
 
@@ -122,6 +125,7 @@ Manufacturing:
     """
     {user_request}
     """
+
 
   Customer Analytics: |
     당신은 제조업 기업의 고객 데이터 및 구매 행동 분석을 설계하는 수석 고객 분석가입니다.
@@ -140,11 +144,11 @@ Manufacturing:
     - 수익성 기준 고객 분류
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("고객 세그먼트별 재구매율을 분석하여 LTV가 높은 그룹 식별")
+    - analysis_type: 예시 ("Cohort Analysis, Segmentation Analysis")
+    - required_data: 예시 ("고객 구매 이력, 거래액, 산업군 정보, 재구매 여부")
+    - success_metric: 예시 ("LTV 상위 20% 고객 그룹 식별")
+    - optional_tools: 예시 ("Python, SQL, Tableau, R")
 
     출력은 반드시 **JSON 배열** 형태로 반환하세요.
 
@@ -152,6 +156,7 @@ Manufacturing:
     """
     {user_request}
     """
+
 
   Financial Snapshot Report: |
     당신은 제조업 기업의 재무 상태를 종합적으로 진단하는 수석 재무 분석가입니다.
@@ -170,17 +175,19 @@ Manufacturing:
     - 재무 리스크 요인
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("최근 2분기 ROE 감소 원인을 분석")
+    - analysis_type: 예시 ("Financial Ratio Analysis, Trend Analysis")
+    - required_data: 예시 ("재무제표, 손익계산서, 현금흐름표, 부채정보")
+    - success_metric: 예시 ("주요 재무 리스크 요인 3개 이상 식별")
+    - optional_tools: 예시 ("Excel, Python, Tableau, ERP")
 
     출력은 **JSON 배열** 형태로 하세요.
+
     사용자 요청:
     """
     {user_request}
     """
+
 
   Equity Analyst Report: |
     당신은 글로벌 투자은행 소속 수석 애널리스트입니다.
@@ -199,14 +206,13 @@ Manufacturing:
     - 주요 리스크 및 촉매
 
     각 질문에 대해:
-    - question
-    - analysis_type
-    - required_data
-    - success_metric
-    - optional_tools
+    - question: 예시 ("이번 분기 실적 모멘텀을 바탕으로 성장 가능성이 높은 사업부 식별")
+    - analysis_type: 예시 ("Valuation Analysis, Peer Comparison, Trend Analysis")
+    - required_data: 예시 ("재무제표, 시장 데이터, 경쟁사 보고서, 주가")
+    - success_metric: 예시 ("투자 의사결정에 활용 가능한 인사이트 도출")
+    - optional_tools: 예시 ("Bloomberg Terminal, Excel, Python, Tableau")
 
     출력은 **JSON 배열** 형태로 하세요.
-
 
     사용자 요청:
     """
