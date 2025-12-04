@@ -9,7 +9,7 @@ import json
 from app.utils import load_yaml_prompt
 from schemas.state_schema import GraphState
 import re
-genai_client = Client(api_key="AIzaSyD_55-zCnWNccZEh91CQ2xk-7ewjcKeVOQ")
+genai_client = Client(api_key="")
 
 
 def build_rq_agent_prompt(data: Dict[str, Any]) -> str:
