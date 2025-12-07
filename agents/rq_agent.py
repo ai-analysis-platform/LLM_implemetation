@@ -6,10 +6,11 @@ from typing import Optional
 from typing import Dict, List, Any
 import os
 import json
-from app.utils import load_yaml_prompt
+from app.utils import load_yaml_prompt,genai_client
 from schemas.state_schema import GraphState
 import re
-genai_client = Client(api_key="")
+
+
 
 
 def build_rq_agent_prompt(data: Dict[str, Any]) -> str:
@@ -48,5 +49,10 @@ def rq_agent_node(state: GraphState) -> GraphState:
         rq_list = json.loads(cleaned_text)
     except json.JSONDecodeError:
         raise ValueError(f"RQ Agent output is not valid JSON:\n{cleaned_text}")
+    print(rq_list)
+    return {
+        **state,
+        "research_questions": rq_list,
+        "input_data": data
+    }
 
-    return rq_list

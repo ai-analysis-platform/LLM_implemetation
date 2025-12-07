@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from typing import List, Dict
 from datetime import datetime
 import yaml
+from google.genai import Client
 
 
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "outputs")
@@ -77,3 +78,12 @@ def save_markdown_report(md_content: str, out_name: str=None) -> str:
 def load_yaml_prompt(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+    
+def get_genai_client():
+    #api_key = os.getenv("GEMINI_API_KEY")
+    api_key ="AIzaSyBBjLYmk0uCNebCvHl_C1zjuhjYpzY_BIg"
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.")
+
+    return Client(api_key=api_key)
+genai_client = get_genai_client()
